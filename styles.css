@@ -105,6 +105,19 @@ a:focus-visible {
   color: var(--text);
 }
 
+.meta {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.meta-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin: 0;
+}
+
 .hero-links,
 .footer-links {
   display: flex;
@@ -119,40 +132,65 @@ a:focus-visible {
   gap: 1rem;
 }
 
-.stack,
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+.pinned {
+  position: relative;
+}
+
+.pinned-spacer {
+  height: 200vh;
+}
+
+.pinned-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 2.5rem;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.stage {
+  display: grid;
   gap: 2rem;
 }
 
-.stack li {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.stage-header p {
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: minmax(120px, 170px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.stack li a {
-  align-self: flex-start;
-}
-
-.list li {
-  display: grid;
-  grid-template-columns: minmax(130px, 180px) 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.list span {
+.timeline-item span {
   color: var(--accent);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.research-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.research-group {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  padding-left: 1.5rem;
 }
 
 .footer-note {
@@ -161,13 +199,40 @@ a:focus-visible {
   color: var(--muted);
 }
 
-.reveal {
+.is-enhanced .stage {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
 }
 
-.reveal.is-visible {
+.is-enhanced .stage.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.is-enhanced .timeline-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.is-enhanced .timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-enhanced .research-group {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.is-enhanced .research-group.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -178,7 +243,11 @@ a:focus-visible {
     gap: 1rem;
   }
 
-  .list li {
+  .timeline-item {
     grid-template-columns: 1fr;
+  }
+
+  .pinned-spacer {
+    height: 220vh;
   }
 }
