@@ -9,6 +9,19 @@ const prefersReducedMotion = window.matchMedia(
 
 if (pinnedSection && stageElements.length > 0 && !prefersReducedMotion) {
   document.body.classList.add("is-enhanced");
+  const entryObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          pinnedSection.classList.add("is-entered");
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  entryObserver.observe(pinnedSection);
 
   const state = {
     start: 0,

@@ -150,6 +150,18 @@ a:focus-visible {
   padding: clamp(3rem, 6vw, 5rem) 0;
 }
 
+.is-enhanced .pinned-sticky {
+  transform: scale(0.98);
+  background: #0b0c0f;
+  transition: transform 0.7s ease, background 0.7s ease;
+  will-change: transform, background;
+}
+
+.is-enhanced .pinned.is-entered .pinned-sticky {
+  transform: scale(1);
+  background: #07080a;
+}
+
 .stage {
   display: grid;
   gap: 2rem;
