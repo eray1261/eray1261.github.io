@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Premium single-page portfolio with scroll-driven sections, timeline experience, and research projects."
+    />
+    <meta name="keywords" content="portfolio, frontend, research, experience" />
+    <meta name="author" content="Your Name" />
+    <meta property="og:title" content="Your Name | Portfolio" />
+    <meta
+      property="og:description"
+      content="Apple-style portfolio with smooth scrolling, timeline, and research projects."
+    />
+    <meta property="og:type" content="website" />
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Fixed progress indicator for scroll position -->
+    <div class="scroll-progress" aria-hidden="true">
+      <span class="scroll-progress__bar" id="scroll-progress"></span>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <!-- Sticky header with hamburger menu -->
+    <header class="site-header">
+      <div class="logo">YN</div>
+      <nav class="nav" id="nav">
+        <a href="#hero">Home</a>
+        <a href="#experience">Work</a>
+        <a href="#research">Research</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- Scroll container for snap sections -->
+    <main id="scroll-container">
+      <!-- HERO SECTION -->
+      <section id="hero" class="section hero" aria-labelledby="hero-title">
+        <div class="hero__background"></div>
+        <div class="hero__content fade-in">
+          <!-- EDIT: Replace placeholders below with your real info -->
+          <p class="eyebrow">Senior Frontend Engineer</p>
+          <h1 id="hero-title">Your Name</h1>
+          <h2 class="hero__role">Current Role / Title</h2>
+          <p class="hero__intro">
+            1–2 line intro about your focus, impact, and mission. Keep it premium
+            and concise.
+          </p>
+          <p class="hero__education">
+            Education highlights, certifications, or key programs.
+          </p>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <!-- WORK EXPERIENCE SECTION -->
+      <section id="experience" class="section experience" aria-labelledby="experience-title">
+        <div class="section__header reveal">
+          <p class="eyebrow">Work Experience</p>
+          <h2 id="experience-title">Timeline</h2>
+          <p>Highlights of roles, impact, and growth over time.</p>
+        </div>
+        <div class="timeline" role="list">
+          <!-- EDIT: Replace each item with your real experience -->
+          <article class="timeline-item reveal" role="listitem">
+            <div class="timeline-card">
+              <h3>Company One</h3>
+              <p class="timeline-role">Role Title</p>
+              <p class="timeline-date">2023 — Present</p>
+              <p>
+                Short description of your impact, technologies, and outcomes.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal" role="listitem">
+            <div class="timeline-card">
+              <h3>Company Two</h3>
+              <p class="timeline-role">Role Title</p>
+              <p class="timeline-date">2021 — 2023</p>
+              <p>
+                Short description of your impact, technologies, and outcomes.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal" role="listitem">
+            <div class="timeline-card">
+              <h3>Company Three</h3>
+              <p class="timeline-role">Role Title</p>
+              <p class="timeline-date">2019 — 2021</p>
+              <p>
+                Short description of your impact, technologies, and outcomes.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- RESEARCH SECTION -->
+      <section id="research" class="section research" aria-labelledby="research-title">
+        <div class="section__header reveal">
+          <p class="eyebrow">Research</p>
+          <h2 id="research-title">Projects</h2>
+          <p>Selected papers, prototypes, and publications.</p>
+        </div>
+        <div class="project-grid">
+          <!-- EDIT: Replace each project with your real data -->
+          <article class="project-card reveal">
+            <div class="project-card__content">
+              <h3>Project Title One</h3>
+              <p>Short description of the research project.</p>
+              <div class="tags">
+                <span>AI</span>
+                <span>HCI</span>
+                <span>Systems</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <button class="btn btn-secondary" data-preview="assets/sample-1.pdf">
+                Preview
+              </button>
+              <a class="btn btn-primary" href="assets/sample-1.pdf" download>
+                Download
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__content">
+              <h3>Project Title Two</h3>
+              <p>Short description of the research project.</p>
+              <div class="tags">
+                <span>UX</span>
+                <span>Visualization</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <button class="btn btn-secondary" data-preview="assets/sample-2.pdf">
+                Preview
+              </button>
+              <a class="btn btn-primary" href="assets/sample-2.pdf" download>
+                Download
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__content">
+              <h3>Project Title Three</h3>
+              <p>Short description of the research project.</p>
+              <div class="tags">
+                <span>Robotics</span>
+                <span>Control</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <button class="btn btn-secondary" data-preview="assets/sample-3.pdf">
+                Preview
+              </button>
+              <a class="btn btn-primary" href="assets/sample-3.pdf" download>
+                Download
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for PDF preview -->
+    <div class="modal" id="preview-modal" aria-hidden="true">
+      <div class="modal__content" role="dialog" aria-modal="true" aria-label="PDF preview">
+        <button class="modal__close" id="modal-close" aria-label="Close preview">
+          ✕
+        </button>
+        <iframe id="preview-frame" title="PDF Preview" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
