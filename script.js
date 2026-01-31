@@ -26,15 +26,15 @@ if (experienceSection && !prefersReducedMotion) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("experience-active");
+          entry.target.classList.add("in-view");
         } else {
-          entry.target.classList.remove("experience-active");
+          entry.target.classList.remove("in-view");
         }
       });
     },
     {
-      threshold: 0.35,
-      rootMargin: "0px 0px -15% 0px",
+      threshold: 0.2,
+      rootMargin: "20% 0px -20% 0px",
     }
   );
 
