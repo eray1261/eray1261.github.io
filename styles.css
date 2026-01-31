@@ -162,14 +162,37 @@ a:focus-visible {
 }
 
 .reveal {
+  --reveal-offset: 24px;
+  --section-scale: 1;
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(var(--reveal-offset)) scale(var(--section-scale));
+  transition: opacity 0.8s ease, transform 0.9s ease;
 }
 
 .reveal.is-visible {
+  --reveal-offset: 0px;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(var(--reveal-offset)) scale(var(--section-scale));
+}
+
+.experience {
+  --section-scale: 0.98;
+  background: rgba(6, 7, 10, 0);
+  transform-origin: center;
+  transition: background 1.2s ease;
+}
+
+.experience.experience-active {
+  --section-scale: 1;
+  background: rgba(6, 7, 10, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience {
+    --section-scale: 1;
+    background: transparent;
+    transition: none;
+  }
 }
 
 @media (max-width: 720px) {
