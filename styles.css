@@ -202,13 +202,13 @@ button {
 .timeline {
   position: relative;
   display: grid;
-  gap: 32px;
+  gap: 18px;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 12px;
   top: 0;
   width: 2px;
   height: 100%;
@@ -217,12 +217,14 @@ button {
 
 .timeline-item {
   position: relative;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding-left: 28px;
 }
 
 .timeline-item:nth-child(even) {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .timeline-card {
@@ -259,8 +261,9 @@ button {
 }
 
 .timeline-role {
-  color: var(--muted);
-  margin-top: 8px;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 500;
 }
 
 .timeline-date {
@@ -495,12 +498,12 @@ button {
   }
 
   .timeline-item {
-    justify-content: flex-start;
-    padding-left: 24px;
+    padding-left: 22px;
   }
 
-  .timeline-item:nth-child(even) {
-    justify-content: flex-start;
+  .timeline-dot {
+    left: 12px;
+    transform: translateX(-50%);
   }
 
   .timeline-dot {
