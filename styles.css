@@ -203,12 +203,16 @@ button {
   position: relative;
   display: grid;
   gap: 18px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   width: 2px;
   height: 100%;
@@ -220,11 +224,16 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  padding-left: 28px;
+}
+
+.timeline-item:nth-child(odd) {
+  grid-column: 1;
+  justify-items: end;
 }
 
 .timeline-item:nth-child(even) {
-  justify-content: flex-start;
+  grid-column: 2;
+  justify-items: start;
 }
 
 .timeline-card {
@@ -308,6 +317,14 @@ button {
   transform: translateX(-50%);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
   z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  transform: translateX(calc(-50% + 14px));
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  transform: translateX(calc(-50% - 14px));
 }
 
 /* Research projects */
@@ -495,10 +512,24 @@ button {
 
   .timeline::before {
     left: 12px;
+    transform: none;
   }
 
   .timeline-item {
-    padding-left: 22px;
+    grid-column: 1 / -1;
+    justify-items: start;
+    padding-left: 0;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    grid-column: 1 / -1;
+    justify-items: start;
   }
 
   .timeline-dot {
@@ -506,8 +537,8 @@ button {
     transform: translateX(-50%);
   }
 
-  .timeline-dot {
-    left: 12px;
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
     transform: translateX(-50%);
   }
 }
