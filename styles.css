@@ -203,12 +203,16 @@ button {
   position: relative;
   display: grid;
   gap: 18px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   width: 2px;
   height: 100%;
@@ -217,13 +221,17 @@ button {
 
 .timeline-item {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 10px;
-  padding-left: 28px;
+}
+
+.timeline-item:nth-child(odd) {
+  grid-column: 1;
+  justify-content: flex-end;
 }
 
 .timeline-item:nth-child(even) {
+  grid-column: 2;
   justify-content: flex-start;
 }
 
@@ -308,6 +316,13 @@ button {
   transform: translateX(-50%);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
   z-index: 2;
+}
+
+.timeline-year {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 /* Research projects */
@@ -495,20 +510,35 @@ button {
 
   .timeline::before {
     left: 12px;
+    transform: none;
   }
 
   .timeline-item {
-    padding-left: 22px;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
   }
 
-  .timeline-dot {
-    left: 12px;
-    transform: translateX(-50%);
+  .timeline {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    grid-column: 1 !important;
+    justify-content: flex-start !important;
+  }
+
+  .timeline::before,
   .timeline-dot {
     left: 12px;
-    transform: translateX(-50%);
+    transform: translateX(0);
+  }
+
+  .timeline-year {
+    left: 12px;
+    transform: translateX(0);
+    text-align: left;
   }
 }
 
