@@ -90,6 +90,44 @@ modal.addEventListener("click", (event) => {
   }
 });
 
+// Experience timeline interactions for mobile + accessibility
+const timelineCards = document.querySelectorAll(".timeline-card");
+
+const isCoarsePointer = () =>
+  window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+timelineCards.forEach((card) => {
+  const setExpanded = (expanded) => {
+    card.classList.toggle("is-open", expanded);
+    card.setAttribute("aria-expanded", String(expanded));
+  };
+
+  card.addEventListener("click", () => {
+    if (isCoarsePointer()) {
+      setExpanded(!card.classList.contains("is-open"));
+    }
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setExpanded(!card.classList.contains("is-open"));
+    }
+  });
+
+  card.addEventListener("focus", () => {
+    if (!card.classList.contains("is-open")) {
+      card.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  card.addEventListener("blur", () => {
+    if (!card.classList.contains("is-open")) {
+      card.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
 // Close modal on escape
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-open")) {
