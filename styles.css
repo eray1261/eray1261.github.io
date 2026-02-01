@@ -201,9 +201,9 @@ button {
 /* Experience timeline */
 .timeline {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-  grid-template-columns: 1fr 1fr;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -222,21 +222,32 @@ button {
 .timeline-item {
   position: relative;
   display: flex;
-  gap: 10px;
+  width: 100%;
 }
 
-.timeline-item:nth-child(odd) {
-  grid-column: 1;
-  justify-items: end;
+.timeline-item:nth-of-type(odd) {
+  justify-content: flex-start;
+  padding-right: calc(50% + 24px);
 }
 
-.timeline-item:nth-child(even) {
-  grid-column: 2;
-  justify-items: start;
+.timeline-item:nth-of-type(even) {
+  justify-content: flex-end;
+  padding-left: calc(50% + 24px);
+}
+
+.timeline-year {
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-card {
-  width: min(460px, 100%);
+  width: 100%;
+  max-width: 400px;
   background: var(--card);
   border: 1px solid var(--card-border);
   border-radius: 20px;
@@ -316,14 +327,6 @@ button {
   transform: translateX(-50%);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
   z-index: 2;
-}
-
-.timeline-item:nth-child(odd) .timeline-dot {
-  transform: translateX(calc(-50% + 14px));
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  transform: translateX(calc(-50% - 14px));
 }
 
 /* Research projects */
@@ -509,37 +512,30 @@ button {
     display: flex;
   }
 
-  .timeline::before {
-    left: 12px;
-    transform: none;
-  }
-
-  .timeline-item {
-    grid-column: 1 / -1;
-    justify-items: start;
-    padding-left: 0;
-  }
-
   .timeline {
-    grid-template-columns: 1fr;
     max-width: 100%;
   }
 
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    grid-column: 1 / -1;
-    justify-items: start;
+  .timeline::before {
+    left: 16px;
+    transform: none;
   }
 
-  .timeline::before,
+  .timeline-item:nth-of-type(odd),
+  .timeline-item:nth-of-type(even) {
+    justify-content: flex-start;
+    padding-left: 40px;
+    padding-right: 0;
+  }
+
   .timeline-dot {
-    left: 12px;
-    transform: translateX(0);
+    left: 16px;
+    transform: translateX(-50%);
   }
 
-  .timeline-item:nth-child(odd) .timeline-dot,
-  .timeline-item:nth-child(even) .timeline-dot {
-    transform: translateX(-50%);
+  .timeline-year {
+    text-align: left;
+    padding-left: 40px;
   }
 }
 
