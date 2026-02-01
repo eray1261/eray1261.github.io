@@ -221,8 +221,7 @@ button {
 
 .timeline-item {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 10px;
 }
 
@@ -532,9 +531,10 @@ button {
     justify-items: start;
   }
 
+  .timeline::before,
   .timeline-dot {
     left: 12px;
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 
   .timeline-item:nth-child(odd) .timeline-dot,
