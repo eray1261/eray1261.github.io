@@ -90,42 +90,40 @@ modal.addEventListener("click", (event) => {
   }
 });
 
-// Experience timeline accordion interactions
-const timelineItems = document.querySelectorAll(".timeline-item");
+// Experience timeline interactions for mobile + accessibility
+const timelineCards = document.querySelectorAll(".timeline-card");
 
-const closeItem = (item) => {
-  const button = item.querySelector(".timeline-row");
-  item.classList.remove("is-open");
-  if (button) {
-    button.setAttribute("aria-expanded", "false");
-  }
-};
+const isCoarsePointer = () =>
+  window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-const openItem = (item) => {
-  const button = item.querySelector(".timeline-row");
-  item.classList.add("is-open");
-  if (button) {
-    button.setAttribute("aria-expanded", "true");
-  }
-};
+timelineCards.forEach((card) => {
+  const setExpanded = (expanded) => {
+    card.classList.toggle("is-open", expanded);
+    card.setAttribute("aria-expanded", String(expanded));
+  };
 
-timelineItems.forEach((item) => {
-  const button = item.querySelector(".timeline-row");
-  if (!button) {
-    return;
-  }
+  card.addEventListener("click", () => {
+    if (isCoarsePointer()) {
+      setExpanded(!card.classList.contains("is-open"));
+    }
+  });
 
-  button.addEventListener("click", () => {
-    const isOpen = item.classList.contains("is-open");
-    timelineItems.forEach((otherItem) => {
-      if (otherItem !== item) {
-        closeItem(otherItem);
-      }
-    });
-    if (isOpen) {
-      closeItem(item);
-    } else {
-      openItem(item);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setExpanded(!card.classList.contains("is-open"));
+    }
+  });
+
+  card.addEventListener("focus", () => {
+    if (!card.classList.contains("is-open")) {
+      card.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  card.addEventListener("blur", () => {
+    if (!card.classList.contains("is-open")) {
+      card.setAttribute("aria-expanded", "false");
     }
   });
 });

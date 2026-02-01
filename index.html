@@ -8,14 +8,14 @@
       content="Premium single-page portfolio with scroll-driven sections, timeline experience, and research projects."
     />
     <meta name="keywords" content="portfolio, frontend, research, experience" />
-    <meta name="author" content="Your Name" />
-    <meta property="og:title" content="Your Name | Portfolio" />
+    <meta name="author" content="Eshanika Ray" />
+    <meta property="og:title" content="Eshanika Ray | Portfolio" />
     <meta
       property="og:description"
       content="Apple-style portfolio with smooth scrolling, timeline, and research projects."
     />
     <meta property="og:type" content="website" />
-    <title>Your Name | Portfolio</title>
+    <title>Eshanika Ray | Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,7 @@
 
     <!-- Sticky header with hamburger menu -->
     <header class="site-header">
-      <div class="logo">YN</div>
+      <div class="logo">ER</div>
       <nav class="nav" id="nav">
         <a href="#hero">Home</a>
         <a href="#experience">Work</a>
@@ -57,15 +57,20 @@
         <div class="hero__background"></div>
         <div class="hero__content fade-in">
           <!-- EDIT: Replace placeholders below with your real info -->
-          <p class="eyebrow">Senior Frontend Engineer</p>
-          <h1 id="hero-title">Your Name</h1>
-          <h2 class="hero__role">Current Role / Title</h2>
+          <p class="eyebrow"></p>
+          <h1 id="hero-title">Eshanika Ray</h1>
+          <h2 class="hero__role">AI & ML Research Engineer</h2>
           <p class="hero__intro">
-            1–2 line intro about your focus, impact, and mission. Keep it premium
-            and concise.
+            I’m a master’s student at UCLA and a Google DeepMind Fellow, working at the
+            intersection of research and building. I design AI systems that earn trust in
+            practice through reliable models, clear interfaces, and hardware-integrated
+            intelligence, focusing on how models behave and remain dependable in real-world
+            use.
+            
+
           </p>
           <p class="hero__education">
-            Education highlights, certifications, or key programs.
+        
           </p>
         </div>
         <div class="scroll-indicator" aria-hidden="true">
@@ -84,148 +89,160 @@
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-rfa"
             >
-              <span class="timeline-date">2025 — Present</span>
-              <span class="timeline-role">AI/ML Engineer</span>
-              <span class="timeline-company">RFA Electric (RFxAI Startup)</span>
+              <div class="timeline-summary">
+                <h3>RFA Electric (RFxAI Startup)</h3>
+                <p class="timeline-role">AI/ML Engineer</p>
+                <p class="timeline-date">June 2025 — Present</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-rfa"
+                role="region"
+                aria-label="RFA Electric details"
+              >
+                <ul>
+                  <li>Automated analog design with RL, GNNs, and graph transformers.</li>
+                  <li>Built an RF copilot with retrieval, tool-calling agents, and guardrails.</li>
+                  <li>Added feedback loops to grow trust and adoption.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-rfa"
-              role="region"
-              aria-label="RFA Electric details"
-            >
-              <ul>
-                <li>Automated analog design with RL, GNNs, and graph transformers.</li>
-                <li>Built an RF copilot with retrieval, tool-calling agents, and guardrails.</li>
-                <li>Added feedback loops to grow trust and adoption.</li>
-              </ul>
-            </div>
           </article>
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-arac"
             >
-              <span class="timeline-date">June 2025 — Sept 2025</span>
-              <span class="timeline-role">Lead Product Developer</span>
-              <span class="timeline-company">Arac Lab, UCLA Health</span>
+              <div class="timeline-summary">
+                <h3>Arac Lab, UCLA Health</h3>
+                <p class="timeline-role">Lead Product Developer</p>
+                <p class="timeline-date">June 2025 — Sept 2025</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-arac"
+                role="region"
+                aria-label="Arac Lab details"
+              >
+                <ul>
+                  <li>Built mixed-reality neuro-rehab on Meta Quest 3.</li>
+                  <li>Designed stroke-rehab studies with motion tracking.</li>
+                  <li>Integrated spatial interactions via Meta XR SDK.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-arac"
-              role="region"
-              aria-label="Arac Lab details"
-            >
-              <ul>
-                <li>Built mixed-reality neuro-rehab on Meta Quest 3.</li>
-                <li>Designed stroke-rehab studies with motion tracking.</li>
-                <li>Integrated spatial interactions via Meta XR SDK.</li>
-              </ul>
-            </div>
           </article>
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-optum-ds"
             >
-              <span class="timeline-date">2023 — 2024</span>
-              <span class="timeline-role">Data Science &amp; Engineering</span>
-              <span class="timeline-company">Optum (UnitedHealth Group)</span>
+              <div class="timeline-summary">
+                <h3>Optum (UnitedHealth Group)</h3>
+                <p class="timeline-role">Data Science &amp; Engineering</p>
+                <p class="timeline-date">Sept 2023 — Aug 2024</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-optum-ds"
+                role="region"
+                aria-label="Optum data science details"
+              >
+                <ul>
+                  <li>Led analytics and automation across three initiatives.</li>
+                  <li>Delivered dashboards saving ~$2M and cutting costs 13%.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-optum-ds"
-              role="region"
-              aria-label="Optum data science details"
-            >
-              <ul>
-                <li>Led analytics and automation across three initiatives.</li>
-                <li>Delivered dashboards saving ~$2M and cutting costs 13%.</li>
-              </ul>
-            </div>
           </article>
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-optum-intern"
             >
-              <span class="timeline-date">2022</span>
-              <span class="timeline-role">Data Science Intern</span>
-              <span class="timeline-company">Optum</span>
+              <div class="timeline-summary">
+                <h3>Optum</h3>
+                <p class="timeline-role">Data Science Intern</p>
+                <p class="timeline-date">June 2022 — Aug 2022</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-optum-intern"
+                role="region"
+                aria-label="Optum internship details"
+              >
+                <ul>
+                  <li>Built a Django mental healthcare app for patient care flows.</li>
+                  <li>Implemented support group chat for peer connection.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-optum-intern"
-              role="region"
-              aria-label="Optum internship details"
-            >
-              <ul>
-                <li>Built a Django mental healthcare app for patient care flows.</li>
-                <li>Implemented support group chat for peer connection.</li>
-              </ul>
-            </div>
           </article>
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-hpe"
             >
-              <span class="timeline-date">2021</span>
-              <span class="timeline-role">IT Project Management Intern</span>
-              <span class="timeline-company">Hewlett-Packard Enterprise</span>
+              <div class="timeline-summary">
+                <h3>Hewlett-Packard Enterprise</h3>
+                <p class="timeline-role">IT Project Management Intern</p>
+                <p class="timeline-date">July 2021 — Oct 2021</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-hpe"
+                role="region"
+                aria-label="HPE internship details"
+              >
+                <ul>
+                  <li>Modeled data for a crime-tracking system.</li>
+                  <li>Migrated critical datasets to AWS cloud services.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-hpe"
-              role="region"
-              aria-label="HPE internship details"
-            >
-              <ul>
-                <li>Modeled data for a crime-tracking system.</li>
-                <li>Migrated critical datasets to AWS cloud services.</li>
-              </ul>
-            </div>
           </article>
           <article class="timeline-item reveal" role="listitem">
             <span class="timeline-dot" aria-hidden="true"></span>
             <button
-              class="timeline-row"
+              class="timeline-card"
               type="button"
               aria-expanded="false"
               aria-controls="exp-details-quartic"
             >
-              <span class="timeline-date">2021</span>
-              <span class="timeline-role">Data Engineering Intern</span>
-              <span class="timeline-company">Quartic.ai</span>
+              <div class="timeline-summary">
+                <h3>Quartic.ai</h3>
+                <p class="timeline-role">Data Engineering Intern</p>
+                <p class="timeline-date">Aug 2021 — Oct 2021</p>
+              </div>
+              <div
+                class="timeline-details"
+                id="exp-details-quartic"
+                role="region"
+                aria-label="Quartic.ai internship details"
+              >
+                <ul>
+                  <li>Benchmarked GPU libraries for CPU-to-GPU migration.</li>
+                  <li>Optimized data pipelines for measurable performance gains.</li>
+                </ul>
+              </div>
             </button>
-            <div
-              class="timeline-details"
-              id="exp-details-quartic"
-              role="region"
-              aria-label="Quartic.ai internship details"
-            >
-              <ul>
-                <li>Benchmarked GPU libraries for CPU-to-GPU migration.</li>
-                <li>Optimized data pipelines for measurable performance gains.</li>
-              </ul>
-            </div>
           </article>
         </div>
       </section>
