@@ -238,11 +238,15 @@ button {
 .timeline-year {
   text-align: center;
   color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 8px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 12px 0;
   position: relative;
   z-index: 1;
+  background: linear-gradient(90deg, transparent, rgba(122, 162, 255, 0.08), transparent);
+  border-radius: 4px;
+  margin: 8px 0;
 }
 
 .timeline-card {
@@ -276,19 +280,40 @@ button {
 .timeline-summary {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+}
+
+.timeline-summary h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 2px;
 }
 
 .timeline-role {
   color: var(--text);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
+.timeline-location {
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
 .timeline-date {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--accent);
+  font-weight: 500;
   margin-bottom: 0;
+}
+
+.company-type {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.9em;
 }
 
 .timeline-details {
