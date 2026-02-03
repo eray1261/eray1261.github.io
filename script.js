@@ -134,3 +134,48 @@ window.addEventListener("keydown", (event) => {
     closeModal();
   }
 });
+
+// Research navigation pills
+const researchNavPills = document.querySelectorAll(".research-nav__pill");
+const researchSubsections = document.querySelectorAll(".research-subsection");
+
+// Smooth scroll to subsection when clicking pill
+researchNavPills.forEach((pill) => {
+  pill.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = pill.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Update active state immediately on click
+      researchNavPills.forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+    }
+  });
+});
+
+// Update active pill based on scroll position
+const researchObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        researchNavPills.forEach((pill) => {
+          const href = pill.getAttribute("href");
+          pill.classList.toggle("active", href === `#${id}`);
+        });
+      }
+    });
+  },
+  {
+    root: scrollContainer,
+    rootMargin: "-30% 0px -60% 0px",
+    threshold: 0,
+  }
+);
+
+researchSubsections.forEach((section) => {
+  researchObserver.observe(section);
+});
