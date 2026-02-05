@@ -1,0 +1,3 @@
+- Built AI-powered liver diagnosis tool with speech transcription, automated symptom extraction, and CT scan annotation—tested with 8 hepatologists
+- Achieved 75% adoption willingness: documentation features saved significant time (4.4/5), AI explanations built trust (3.8/5), 50% reported faster diagnosis
+- Found strong correlation between speed and adoption (r=0.75, p<0.01): physicians perceiving time savings were 75% more likely to use the tool

@@ -1,0 +1,3 @@
+- Implemented inference-time hallucination mitigation for LLMs via token-level classifier-guided decoding, integrating hallucination probability into beam search for LLaMA-3.2-1B and GPT-2
+- Trained on 40% of TruthfulQA and evaluated on 800+ QA samples, reporting Truthfulness (TN%), Informativeness (IN%), and ΔBLEU, with systematic analysis across sequence length and temperature
+- Achieved ~91% overall token-level classification accuracy but identified low minority-class recall (~59%), demonstrating why token-level hallucination detection is substantially harder than sentence-level methods and motivating data-balancing and higher-capacity classifiers

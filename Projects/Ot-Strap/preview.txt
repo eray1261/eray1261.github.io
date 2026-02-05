@@ -1,0 +1,3 @@
+- Developed optimal transport method for retrieving relevant demonstrations from large robot datasets, reducing matching cost by 93% vs. temporal alignment baseline
+- Achieved 90% task success (vs. 70% baseline) on long-horizon manipulation by selecting geometrically coherent training examples
+- Demonstrated robust performance under sensor noise, maintaining 85% success while temporal baseline degraded to 50%

@@ -1,0 +1,3 @@
+- Systematically analyzed 30+ biomedical AI systems integrating diffusion models and multimodal LLMs, spanning medical image synthesis, report generation, VQA, and cross-modal retrieval
+- Proposed a four-part integration taxonomy (hybrid generation, LLM-guided synthesis, diffusion-enhanced reasoning, unified foundation models), benchmarking systems with BLEU-4, FID, AUROC, F1, and radiologist agreement (up to 72.7%)
+- Identified structural gaps in current modular pipelines, highlighting generalization drops (F1: 0.81 → 0.62 external) and outlining architectural, data, and clinical validation challenges blocking end-to-end multimodal clinical reasoning

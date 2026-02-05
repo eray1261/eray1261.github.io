@@ -1,0 +1,3 @@
+- Designed and implemented an interactive interpretability dashboard unifying model steering, feature inspection, token-level analysis, and user-profiling transparency across multiple abstraction levels
+- Built a React + Next.js prototype integrating Neuronpedia APIs to visualize Top-K sparse autoencoder feature activations, steering vectors, and side-by-side steered vs. unsteered model outputs
+- Synthesized 6+ state-of-the-art interpretability systems (e.g., Neuronpedia, TalkTuner, LM Transparency Tool) into a single interface, introducing explanatory virtue indicators (bias risk, consistency, uncertainty) to support AI auditing and trust assessment

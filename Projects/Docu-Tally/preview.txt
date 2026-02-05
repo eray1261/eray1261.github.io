@@ -1,0 +1,3 @@
+- Built a semantic search engine using Vector Space Models (VSM) and Latent Semantic Analysis (LSA) to rank web documents beyond keyword matching
+- Proposed a Docu-Tally ranking metric, improving precision, recall, and F-score over SVM, Random Forest, and Markov baselines on 250+ queries
+- Implemented an NLP query pipeline (tokenization, stemming, POS tagging) and evaluated relevance using DCG and precision–recall metrics

@@ -1,0 +1,3 @@
+- Reformulated active contour (snake) evolution as a sequential control problem, training MLP and CNN Actor-Critic agents using PPO and imitation learning to predict per-vertex deformation actions
+- Evaluated 12 trained models across 6 geometric shapes (circle, square, triangle, ellipse, star, multi-circle), showing behavioral cloning converged faster and more stably than PPO in a 300-dimensional action space
+- Demonstrated zero-shot generalization to unseen shapes with imitation-trained models, while identifying reward sparsity and high-dimensional control as key failure modes limiting PPO on natural images

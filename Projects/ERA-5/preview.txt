@@ -1,0 +1,3 @@
+- Built a large-scale air quality dataset for India by integrating ERA5 reanalysis data with Historical Ambient Air Quality (HAAQ), covering 51,000+ samples across 28 years (1987–2014) on a standardized 5.625° spatial grid
+- Engineered a full preprocessing pipeline (API recovery, geocoding, gridding, interpolation) to combine meteorological variables (temperature, wind, humidity, precipitation, cloud cover) with pollutants (NO₂, SO₂, PM10) for ML-ready modeling
+- Demonstrated predictive signal from physical variables using a 75-parameter MLP, reducing overall RMSE from 0.80 → 0.76 versus climatology and revealing pollutant-specific correlations in data-sparse regions
