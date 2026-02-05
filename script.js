@@ -134,3 +134,48 @@ window.addEventListener("keydown", (event) => {
     closeModal();
   }
 });
+
+// Tag filtering for research projects
+const filterBar = document.querySelector(".filter-bar");
+const projectCards = document.querySelectorAll(".project-card");
+
+if (filterBar && projectCards.length > 0) {
+  // Collect all unique tags from project cards
+  const allTags = new Set();
+  projectCards.forEach((card) => {
+    card.querySelectorAll(".tags span").forEach((tag) => {
+      allTags.add(tag.textContent.trim());
+    });
+  });
+
+  // Sort tags alphabetically and add filter buttons
+  [...allTags].sort().forEach((tag) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-tag";
+    btn.setAttribute("data-filter", tag);
+    btn.textContent = tag;
+    filterBar.appendChild(btn);
+  });
+
+  // Filter logic
+  filterBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-tag");
+    if (!btn) return;
+
+    const filter = btn.getAttribute("data-filter");
+
+    // Update active state
+    filterBar.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+
+    // Show/hide cards
+    projectCards.forEach((card) => {
+      if (filter === "all") {
+        card.classList.remove("hidden");
+      } else {
+        const cardTags = [...card.querySelectorAll(".tags span")].map((t) => t.textContent.trim());
+        card.classList.toggle("hidden", !cardTags.includes(filter));
+      }
+    });
+  });
+}
