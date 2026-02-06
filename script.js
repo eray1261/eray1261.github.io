@@ -7,6 +7,8 @@ const nav = document.getElementById("nav");
 const modal = document.getElementById("preview-modal");
 const modalClose = document.getElementById("modal-close");
 const previewFrame = document.getElementById("preview-frame");
+const previewText = document.getElementById("preview-text");
+const previewTextList = document.getElementById("preview-text-list");
 
 // Update scroll progress indicator
 const updateProgress = () => {
@@ -61,17 +63,55 @@ revealItems.forEach((item, index) => {
 
 // Project preview modal logic
 const previewButtons = document.querySelectorAll("[data-preview]");
+const previewTextButtons = document.querySelectorAll("[data-preview-text]");
 
 const openModal = (src) => {
+  previewText.hidden = true;
+  previewFrame.hidden = false;
   previewFrame.src = src;
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
+};
+
+const openTextModal = async (src) => {
+  previewFrame.hidden = true;
+  previewFrame.src = "";
+  previewText.hidden = false;
+  previewTextList.innerHTML = "";
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+
+  try {
+    const response = await fetch(src);
+    if (!response.ok) {
+      throw new Error("Preview text unavailable.");
+    }
+
+    const text = await response.text();
+    const lines = text
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.startsWith("-"))
+      .map((line) => line.replace(/^-+\s*/, ""));
+
+    lines.forEach((line) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = line;
+      previewTextList.appendChild(listItem);
+    });
+  } catch (error) {
+    const listItem = document.createElement("li");
+    listItem.textContent = "Preview text is unavailable right now.";
+    previewTextList.appendChild(listItem);
+  }
 };
 
 const closeModal = () => {
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
   previewFrame.src = "";
+  previewTextList.innerHTML = "";
+  previewText.hidden = true;
 };
 
 previewButtons.forEach((button) => {
@@ -79,6 +119,15 @@ previewButtons.forEach((button) => {
     const src = button.getAttribute("data-preview");
     if (src) {
       openModal(src);
+    }
+  });
+});
+
+previewTextButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const src = button.getAttribute("data-preview-text");
+    if (src) {
+      openTextModal(src);
     }
   });
 });
