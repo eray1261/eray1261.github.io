@@ -157,16 +157,12 @@ if (filterBar && projectCards.length > 0) {
     filterBar.appendChild(btn);
   });
 
-  // Filter logic
-  filterBar.addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter-tag");
-    if (!btn) return;
-
-    const filter = btn.getAttribute("data-filter");
-
-    // Update active state
+  // Shared filter function
+  function applyFilter(filter) {
+    // Update active state in filter bar
     filterBar.querySelectorAll(".filter-tag").forEach((b) => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
+    const matchingBtn = filterBar.querySelector(`.filter-tag[data-filter="${CSS.escape(filter)}"]`);
+    if (matchingBtn) matchingBtn.classList.add("is-active");
 
     // Show/hide cards
     projectCards.forEach((card) => {
@@ -176,6 +172,22 @@ if (filterBar && projectCards.length > 0) {
         const cardTags = [...card.querySelectorAll(".tags span")].map((t) => t.textContent.trim());
         card.classList.toggle("hidden", !cardTags.includes(filter));
       }
+    });
+  }
+
+  // Filter bar click
+  filterBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-tag");
+    if (!btn) return;
+    applyFilter(btn.getAttribute("data-filter"));
+  });
+
+  // Card tag click — trigger the same filter
+  projectCards.forEach((card) => {
+    card.querySelectorAll(".tags span").forEach((tag) => {
+      tag.addEventListener("click", () => {
+        applyFilter(tag.textContent.trim());
+      });
     });
   });
 }
