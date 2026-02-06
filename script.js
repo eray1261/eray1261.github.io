@@ -89,8 +89,23 @@ revealItems.forEach((item, index) => {
   observer.observe(item);
 });
 
-// Project preview modal logic
-const previewButtons = document.querySelectorAll("[data-preview]");
+// Project preview toggle logic (show/hide bullet points)
+const previewToggleButtons = document.querySelectorAll("[data-preview-toggle]");
+
+previewToggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const card = button.closest(".project-card");
+    const list = card.querySelector(".preview-list");
+    if (list) {
+      const isHidden = list.hasAttribute("hidden");
+      list.toggleAttribute("hidden", !isHidden);
+      button.classList.toggle("is-active", isHidden);
+    }
+  });
+});
+
+// Document button opens PDF in modal
+const documentButtons = document.querySelectorAll("[data-document]");
 
 const openModal = (src) => {
   previewFrame.src = src;
@@ -104,9 +119,9 @@ const closeModal = () => {
   previewFrame.src = "";
 };
 
-previewButtons.forEach((button) => {
+documentButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const src = button.getAttribute("data-preview");
+    const src = button.getAttribute("data-document");
     if (src) {
       openModal(src);
     }
