@@ -472,53 +472,72 @@ button {
 /* Research projects */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
 }
 
 .project-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
-  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(122, 162, 255, 0.2);
+}
+
+.project-card__content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.project-card__content p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 5px;
+  margin-top: 8px;
 }
 
 .tags span {
-  padding: 6px 12px;
+  padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 0.68rem;
   color: var(--muted);
+  letter-spacing: 0.02em;
 }
 
 .project-card__actions {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 10px 18px;
+  padding: 7px 14px;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -529,12 +548,12 @@ button {
 }
 
 .btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 /* Modal */
