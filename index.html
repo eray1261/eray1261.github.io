@@ -262,9 +262,10 @@
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>Data-Driven Active Snakes</h3>
+              <p class="project-card__summary">Reinforcement and imitation learning agents control active contours for shape segmentation.</p>
               <ul class="preview-list">
                 <li>Reformulated active contour (snake) evolution as a sequential control problem, training MLP and CNN Actor-Critic agents using PPO and imitation learning to predict per-vertex deformation actions</li>
-                <li>Evaluated 12 trained models across 6 geometric shapes, showing behavioral cloning converged faster and more stably than PPO in a 300-dimensional action space</li>
+                <li>Evaluated 12 trained models across 6 geometric shapes (circle, square, triangle, ellipse, star, multi-circle), showing behavioral cloning converged faster and more stably than PPO in a 300-dimensional action space</li>
                 <li>Demonstrated zero-shot generalization to unseen shapes with imitation-trained models, while identifying reward sparsity and high-dimensional control as key failure modes limiting PPO on natural images</li>
               </ul>
               <div class="tags">
@@ -277,15 +278,16 @@
               <button class="btn btn-secondary" data-preview="Projects/Data-Driven Active Snakes/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/Data-Driven Active Snakes/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/Data-Driven Active Snakes/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>OT-Strap: Robot Learning</h3>
+              <p class="project-card__summary">Optimal transport retrieval boosts long-horizon robot learning performance.</p>
               <ul class="preview-list">
                 <li>Developed optimal transport method for retrieving relevant demonstrations from large robot datasets, reducing matching cost by 93% vs. temporal alignment baseline</li>
                 <li>Achieved 90% task success (vs. 70% baseline) on long-horizon manipulation by selecting geometrically coherent training examples</li>
@@ -301,19 +303,20 @@
               <button class="btn btn-secondary" data-preview="Projects/Ot-Strap/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/Ot-Strap/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/Ot-Strap/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>LLM Hallucination Mitigation</h3>
+              <p class="project-card__summary">Classifier-guided decoding reduces hallucinations in compact LLMs.</p>
               <ul class="preview-list">
                 <li>Implemented inference-time hallucination mitigation for LLMs via token-level classifier-guided decoding, integrating hallucination probability into beam search for LLaMA-3.2-1B and GPT-2</li>
-                <li>Trained on 40% of TruthfulQA and evaluated on 800+ QA samples, reporting Truthfulness, Informativeness, and ΔBLEU with systematic analysis across sequence length and temperature</li>
-                <li>Achieved ~91% overall token-level classification accuracy but identified low minority-class recall (~59%), demonstrating why token-level hallucination detection is harder than sentence-level methods</li>
+                <li>Trained on 40% of TruthfulQA and evaluated on 800+ QA samples, reporting Truthfulness (TN%), Informativeness (IN%), and ΔBLEU, with systematic analysis across sequence length and temperature</li>
+                <li>Achieved ~91% overall token-level classification accuracy but identified low minority-class recall (~59%), demonstrating why token-level hallucination detection is substantially harder than sentence-level methods and motivating data-balancing and higher-capacity classifiers</li>
               </ul>
               <div class="tags">
                 <span>LLMs</span>
@@ -325,19 +328,20 @@
               <button class="btn btn-secondary" data-preview="Projects/LLM-Hallucination/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/LLM-Hallucination/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/LLM-Hallucination/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>InterPra: Interpretability Dashboard</h3>
+              <p class="project-card__summary">Interactive dashboard unifies model steering and interpretability workflows.</p>
               <ul class="preview-list">
                 <li>Designed and implemented an interactive interpretability dashboard unifying model steering, feature inspection, token-level analysis, and user-profiling transparency across multiple abstraction levels</li>
                 <li>Built a React + Next.js prototype integrating Neuronpedia APIs to visualize Top-K sparse autoencoder feature activations, steering vectors, and side-by-side steered vs. unsteered model outputs</li>
-                <li>Synthesized 6+ state-of-the-art interpretability systems into a single interface, introducing explanatory virtue indicators (bias risk, consistency, uncertainty) to support AI auditing and trust assessment</li>
+                <li>Synthesized 6+ state-of-the-art interpretability systems (e.g., Neuronpedia, TalkTuner, LM Transparency Tool) into a single interface, introducing explanatory virtue indicators (bias risk, consistency, uncertainty) to support AI auditing and trust assessment</li>
               </ul>
               <div class="tags">
                 <span>XAI</span>
@@ -349,15 +353,16 @@
               <button class="btn btn-secondary" data-preview="Projects/InterPra/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/InterPra/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/InterPra/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>Hepnovate: AI Liver Diagnosis</h3>
+              <p class="project-card__summary">AI-assisted liver diagnosis blends speech, symptom extraction, and CT annotation.</p>
               <ul class="preview-list">
                 <li>Built AI-powered liver diagnosis tool with speech transcription, automated symptom extraction, and CT scan annotation—tested with 8 hepatologists</li>
                 <li>Achieved 75% adoption willingness: documentation features saved significant time (4.4/5), AI explanations built trust (3.8/5), 50% reported faster diagnosis</li>
@@ -373,19 +378,20 @@
               <button class="btn btn-secondary" data-preview="Projects/Hepnovate/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/Hepnovate/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/Hepnovate/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>ERA-5 Air Quality Dataset</h3>
+              <p class="project-card__summary">ERA5 and pollution data are fused into an India-wide air quality dataset.</p>
               <ul class="preview-list">
-                <li>Built a large-scale air quality dataset for India by integrating ERA5 reanalysis data with Historical Ambient Air Quality, covering 51,000+ samples across 28 years on a standardized spatial grid</li>
-                <li>Engineered a full preprocessing pipeline (API recovery, geocoding, gridding, interpolation) to combine meteorological variables with pollutants for ML-ready modeling</li>
-                <li>Demonstrated predictive signal from physical variables using a 75-parameter MLP, reducing overall RMSE from 0.80 to 0.76 versus climatology</li>
+                <li>Built a large-scale air quality dataset for India by integrating ERA5 reanalysis data with Historical Ambient Air Quality (HAAQ), covering 51,000+ samples across 28 years (1987–2014) on a standardized 5.625° spatial grid</li>
+                <li>Engineered a full preprocessing pipeline (API recovery, geocoding, gridding, interpolation) to combine meteorological variables (temperature, wind, humidity, precipitation, cloud cover) with pollutants (NO₂, SO₂, PM10) for ML-ready modeling</li>
+                <li>Demonstrated predictive signal from physical variables using a 75-parameter MLP, reducing overall RMSE from 0.80 → 0.76 versus climatology and revealing pollutant-specific correlations in data-sparse regions</li>
               </ul>
               <div class="tags">
                 <span>Climate</span>
@@ -397,19 +403,20 @@
               <button class="btn btn-secondary" data-preview="Projects/ERA-5/CS269_Climate_Change_Report.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/ERA-5/CS269_Climate_Change_Report.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/ERA-5/CS269_Climate_Change_Report.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>Docu-Tally: Semantic Search</h3>
+              <p class="project-card__summary">Semantic search and ranking improve document retrieval beyond keywords.</p>
               <ul class="preview-list">
-                <li>Built a semantic search engine using Vector Space Models and Latent Semantic Analysis to rank web documents beyond keyword matching</li>
+                <li>Built a semantic search engine using Vector Space Models (VSM) and Latent Semantic Analysis (LSA) to rank web documents beyond keyword matching</li>
                 <li>Proposed a Docu-Tally ranking metric, improving precision, recall, and F-score over SVM, Random Forest, and Markov baselines on 250+ queries</li>
-                <li>Implemented an NLP query pipeline (tokenization, stemming, POS tagging) and evaluated relevance using DCG and precision-recall metrics</li>
+                <li>Implemented an NLP query pipeline (tokenization, stemming, POS tagging) and evaluated relevance using DCG and precision–recall metrics</li>
               </ul>
               <div class="tags">
                 <span>NLP</span>
@@ -421,19 +428,20 @@
               <button class="btn btn-secondary" data-preview="Projects/Docu-Tally/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/Docu-Tally/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/Docu-Tally/document.pdf">
+                Document
+              </button>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__content">
               <h3>Biomedical AI Survey</h3>
+              <p class="project-card__summary">Survey maps diffusion and multimodal LLM approaches for biomedical AI.</p>
               <ul class="preview-list">
                 <li>Systematically analyzed 30+ biomedical AI systems integrating diffusion models and multimodal LLMs, spanning medical image synthesis, report generation, VQA, and cross-modal retrieval</li>
-                <li>Proposed a four-part integration taxonomy, benchmarking systems with BLEU-4, FID, AUROC, F1, and radiologist agreement (up to 72.7%)</li>
-                <li>Identified structural gaps in current modular pipelines, highlighting generalization drops and outlining architectural, data, and clinical validation challenges</li>
+                <li>Proposed a four-part integration taxonomy (hybrid generation, LLM-guided synthesis, diffusion-enhanced reasoning, unified foundation models), benchmarking systems with BLEU-4, FID, AUROC, F1, and radiologist agreement (up to 72.7%)</li>
+                <li>Identified structural gaps in current modular pipelines, highlighting generalization drops (F1: 0.81 → 0.62 external) and outlining architectural, data, and clinical validation challenges blocking end-to-end multimodal clinical reasoning</li>
               </ul>
               <div class="tags">
                 <span>Survey</span>
@@ -445,9 +453,9 @@
               <button class="btn btn-secondary" data-preview="Projects/Survey/document.pdf">
                 Preview
               </button>
-              <a class="btn btn-primary" href="Projects/Survey/document.pdf" download>
-                Download
-              </a>
+              <button class="btn btn-primary" data-preview="Projects/Survey/document.pdf">
+                Document
+              </button>
             </div>
           </article>
         </div>
