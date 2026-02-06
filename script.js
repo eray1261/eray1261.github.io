@@ -17,7 +17,31 @@ const updateProgress = () => {
   backToTopButton.classList.toggle("is-visible", scrollTop > 400);
 };
 
-scrollContainer.addEventListener("scroll", updateProgress);
+const sections = Array.from(document.querySelectorAll(".section"));
+let snapTimeout;
+
+const snapToNearestSection = () => {
+  const scrollTop = scrollContainer.scrollTop;
+  const nearest = sections.reduce(
+    (closest, section) => {
+      const distance = Math.abs(section.offsetTop - scrollTop);
+      return distance < closest.distance ? { section, distance } : closest;
+    },
+    { section: sections[0], distance: Number.POSITIVE_INFINITY }
+  );
+
+  if (nearest.section) {
+    scrollContainer.scrollTo({ top: nearest.section.offsetTop, behavior: "smooth" });
+  }
+};
+
+const handleScroll = () => {
+  updateProgress();
+  window.clearTimeout(snapTimeout);
+  snapTimeout = window.setTimeout(snapToNearestSection, 140);
+};
+
+scrollContainer.addEventListener("scroll", handleScroll);
 window.addEventListener("load", updateProgress);
 
 // Back to top action
@@ -32,7 +56,13 @@ hamburger.addEventListener("click", () => {
 });
 
 nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+    const target = targetId ? document.querySelector(targetId) : null;
+    if (target) {
+      event.preventDefault();
+      scrollContainer.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+    }
     nav.classList.remove("is-open");
     hamburger.setAttribute("aria-expanded", "false");
   });
