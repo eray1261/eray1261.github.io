@@ -9,6 +9,12 @@ const modalClose = document.getElementById("modal-close");
 const previewFrame = document.getElementById("preview-frame");
 const previewText = document.getElementById("preview-text");
 const previewTextList = document.getElementById("preview-text-list");
+const chatbotEntry = document.getElementById("chatbot-entry");
+const chatbotPanel = document.getElementById("chatbot-panel");
+const chatbotClose = document.getElementById("chatbot-close");
+const chatbotForm = document.getElementById("chatbot-form");
+const chatbotInput = document.getElementById("chatbot-input");
+const chatbotMessages = document.getElementById("chatbot-messages");
 
 // Update scroll progress indicator
 const updateProgress = () => {
@@ -139,6 +145,93 @@ modal.addEventListener("click", (event) => {
   }
 });
 
+const toggleChatbot = (isOpen) => {
+  chatbotPanel.classList.toggle("is-open", isOpen);
+  chatbotEntry.setAttribute("aria-expanded", String(isOpen));
+  chatbotPanel.setAttribute("aria-hidden", String(!isOpen));
+  if (isOpen) {
+    chatbotInput.focus();
+  }
+};
+
+const addChatMessage = (text, type = "assistant", links = []) => {
+  const message = document.createElement("div");
+  message.className = `chatbot__message chatbot__message--${type}`;
+  message.textContent = text;
+  if (links.length) {
+    const learnMore = document.createElement("div");
+    learnMore.className = "chatbot__learn-more";
+    const title = document.createElement("strong");
+    title.textContent = "Learn more";
+    learnMore.appendChild(title);
+    links.forEach((link) => {
+      const anchor = document.createElement("a");
+      anchor.href = link.url;
+      anchor.textContent = link.label;
+      anchor.addEventListener("click", () => toggleChatbot(false));
+      learnMore.appendChild(anchor);
+    });
+    message.appendChild(learnMore);
+  }
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+};
+
+const setChatbotBusy = (isBusy) => {
+  chatbotForm.querySelector("button").disabled = isBusy;
+  chatbotInput.disabled = isBusy;
+};
+
+const handleChatSubmit = async (event) => {
+  event.preventDefault();
+  const question = chatbotInput.value.trim();
+  if (!question) {
+    return;
+  }
+
+  addChatMessage(question, "user");
+  chatbotInput.value = "";
+  setChatbotBusy(true);
+
+  const loadingMessage = document.createElement("div");
+  loadingMessage.className = "chatbot__message chatbot__message--assistant";
+  loadingMessage.textContent = "Let me check...";
+  chatbotMessages.appendChild(loadingMessage);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ question }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Chat request failed.");
+    }
+
+    const data = await response.json();
+    loadingMessage.remove();
+    addChatMessage(data.answer, "assistant", data.learnMore || []);
+  } catch (error) {
+    loadingMessage.textContent =
+      "Sorry, I couldn't reach the assistant right now. Please try again soon.";
+  } finally {
+    setChatbotBusy(false);
+  }
+};
+
+if (chatbotEntry && chatbotPanel) {
+  chatbotEntry.addEventListener("click", () => {
+    toggleChatbot(!chatbotPanel.classList.contains("is-open"));
+  });
+
+  chatbotClose.addEventListener("click", () => toggleChatbot(false));
+  chatbotForm.addEventListener("submit", handleChatSubmit);
+}
+
 // Experience timeline interactions for mobile + accessibility
 const timelineCards = document.querySelectorAll(".timeline-card");
 
@@ -181,5 +274,9 @@ timelineCards.forEach((card) => {
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-open")) {
     closeModal();
+  }
+
+  if (event.key === "Escape" && chatbotPanel.classList.contains("is-open")) {
+    toggleChatbot(false);
   }
 });
