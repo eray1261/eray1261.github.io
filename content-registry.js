@@ -1,4 +1,24 @@
 const CONTENT_REGISTRY = {
+  profile: [
+    {
+      id: "profile-role",
+      label:
+        "Eshanika Ray is an AI & ML Research Engineer and a master’s student at UCLA focused on advancing responsible machine intelligence.",
+      anchor: "#hero",
+    },
+    {
+      id: "profile-focus-areas",
+      label:
+        "Her primary focus areas include trustworthy AI, interpretability, healthcare AI, robotics, and agent-based systems.",
+      anchor: "#hero",
+    },
+    {
+      id: "profile-impact",
+      label:
+        "She bridges research and real-world deployment by building systems that translate academic insights into practical, reliable applications.",
+      anchor: "#hero",
+    },
+  ],
   hepnovate: [
     { id: "hepnovate-overview", label: "Overview", anchor: "#hepnovate" },
     { id: "hepnovate-problem", label: "Problem Motivation", anchor: "#hepnovate" },
