@@ -16,6 +16,10 @@ const chatbotForm = document.getElementById("chatbot-form");
 const chatbotInput = document.getElementById("chatbot-input");
 const chatbotMessages = document.getElementById("chatbot-messages");
 
+// Backend API base (Vercel)
+const API_BASE = "https://website-backend-eta-two.vercel.app";
+
+
 // Update scroll progress indicator
 const updateProgress = () => {
   const scrollTop = scrollContainer.scrollTop;
@@ -207,7 +211,7 @@ const handleChatSubmit = async (event) => {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
   try {
-    const response = await fetch("/api/chat", {
+    const response = await fetch(`${API_BASE}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
