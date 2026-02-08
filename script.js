@@ -166,9 +166,16 @@ const addChatMessage = (text, type = "assistant", links = []) => {
     learnMore.appendChild(title);
     links.forEach((link) => {
       const anchor = document.createElement("a");
-      anchor.href = link.url;
+      anchor.href = link.anchor;
       anchor.textContent = link.label;
-      anchor.addEventListener("click", () => toggleChatbot(false));
+      anchor.addEventListener("click", (event) => {
+        const target = document.querySelector(link.anchor);
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+        toggleChatbot(false);
+      });
       learnMore.appendChild(anchor);
     });
     message.appendChild(learnMore);
@@ -213,8 +220,19 @@ const handleChatSubmit = async (event) => {
     }
 
     const data = await response.json();
+    const mappedLinks = Array.isArray(data.learnMore)
+      ? data.learnMore
+          .map((item) => {
+            const anchor = window.ID_TO_ANCHOR?.[item.id];
+            if (!anchor) {
+              return null;
+            }
+            return { label: item.label, anchor };
+          })
+          .filter(Boolean)
+      : [];
     loadingMessage.remove();
-    addChatMessage(data.answer, "assistant", data.learnMore || []);
+    addChatMessage(data.answer, "assistant", mappedLinks);
   } catch (error) {
     loadingMessage.textContent =
       "Sorry, I couldn't reach the assistant right now. Please try again soon.";
