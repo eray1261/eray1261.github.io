@@ -51,30 +51,23 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-const copyEmailToClipboard = async (email) => {
-  if (!email) {
-    return;
-  }
+// Copy email to clipboard when clicked
+const copyEmail = document.getElementById('copy-email');
 
-  try {
-    await navigator.clipboard.writeText(email);
-  } catch (error) {
-    const tempInput = document.createElement("input");
-    tempInput.value = email;
-    tempInput.setAttribute("readonly", "");
-    tempInput.style.position = "absolute";
-    tempInput.style.left = "-9999px";
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-  }
-};
-
-if (emailLink) {
-  emailLink.addEventListener("click", () => {
-    const email = emailLink.dataset.email;
-    copyEmailToClipboard(email);
+if (copyEmail) {
+  copyEmail.addEventListener('click', (e) => {
+    const email = copyEmail.dataset.email;
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(email).then(() => {
+      const originalText = copyEmail.textContent;
+      copyEmail.textContent = '✓ Copied!';
+      setTimeout(() => {
+        copyEmail.textContent = originalText;
+      }, 2000);
+    });
+    
+    // mailto will still work normally (don't prevent default)
   });
 }
 
