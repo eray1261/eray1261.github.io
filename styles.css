@@ -629,13 +629,13 @@ button {
 /* Chatbot */
 .chatbot {
   position: fixed;
-  left: 32px;
-  bottom: 32px;
+  right: 32px;
+  bottom: 96px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 12px;
   z-index: 16;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .chatbot__entry {
@@ -899,8 +899,8 @@ button {
   }
 
   .chatbot {
-    left: 20px;
-    bottom: 20px;
+    right: 20px;
+    bottom: 88px;
   }
 }
 
