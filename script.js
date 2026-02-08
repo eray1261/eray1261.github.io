@@ -15,6 +15,7 @@ const chatbotClose = document.getElementById("chatbot-close");
 const chatbotForm = document.getElementById("chatbot-form");
 const chatbotInput = document.getElementById("chatbot-input");
 const chatbotMessages = document.getElementById("chatbot-messages");
+const emailLink = document.querySelector("[data-email]");
 
 // Backend API base (Vercel)
 const API_BASE = "https://website-backend-eta-two.vercel.app";
@@ -49,6 +50,33 @@ nav.querySelectorAll("a").forEach((link) => {
     hamburger.setAttribute("aria-expanded", "false");
   });
 });
+
+const copyEmailToClipboard = async (email) => {
+  if (!email) {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(email);
+  } catch (error) {
+    const tempInput = document.createElement("input");
+    tempInput.value = email;
+    tempInput.setAttribute("readonly", "");
+    tempInput.style.position = "absolute";
+    tempInput.style.left = "-9999px";
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+  }
+};
+
+if (emailLink) {
+  emailLink.addEventListener("click", () => {
+    const email = emailLink.dataset.email;
+    copyEmailToClipboard(email);
+  });
+}
 
 // Intersection Observer for reveal animations
 const observer = new IntersectionObserver(
