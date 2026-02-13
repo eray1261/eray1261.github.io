@@ -1,0 +1,3 @@
+- Reframed machine unlearning evaluation as a representation-level change detection problem, introducing a directional certification framework based on layer-wise two-sample testing with controlled Type-I error
+- Implemented deterministic hidden-state extraction across transformer layers and applied MMD with permutation testing and FDR correction to certify distributional shifts between pretrained, exposed, and unlearned model states
+- Demonstrated that standard unlearning methods induce statistically detectable and often non-selective representational drift, revealing internal collateral effects that behavioral metrics alone fail to capture
